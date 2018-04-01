@@ -58,6 +58,8 @@ public class ThreadDownDouyInStep2 extends Thread {
 				DouYinUtils.printMsg("下载完成的是 》" + url + "。地址是： " + string);
 			}
 		} catch (IOException e) {
+			System.out.println(e.getLocalizedMessage());
+			DouYinUtils.printMsg("超时的是" + url);
 			e.printStackTrace();
 		}
 	}
