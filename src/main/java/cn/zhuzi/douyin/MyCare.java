@@ -35,7 +35,6 @@ public class MyCare {
 			MyCareBean myCare = JSON.parseObject(careStr, MyCareBean.class);
 			FollPerson[] followings = myCare.getFollowings();
 			System.out.println(JSON.toJSONString(followings));
-			System.out.println(JSON.toJSONString(followings));
 			for (FollPerson follPerson : followings) {
 				System.out.println(follPerson.getNickname());
 			}
