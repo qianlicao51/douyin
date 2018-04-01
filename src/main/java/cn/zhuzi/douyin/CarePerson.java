@@ -110,7 +110,6 @@ public class CarePerson {
 
 				follPer.setShDetails(aweme_list);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
