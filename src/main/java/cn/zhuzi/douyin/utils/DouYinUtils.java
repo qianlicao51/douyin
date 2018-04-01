@@ -7,6 +7,7 @@ public class DouYinUtils {
 	public static void sleepForColl(Integer sleepTime) {
 		try {
 			Thread.sleep(sleepTime);
+			
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
