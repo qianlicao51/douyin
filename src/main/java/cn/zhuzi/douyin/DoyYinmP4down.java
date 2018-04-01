@@ -14,8 +14,8 @@ import com.alibaba.fastjson.JSON;
 public class DoyYinmP4down {
 	public static void main(String[] args) {
 		String carePersonStr = "[{'nickname':'一珺、','uid':'52616983119'},{'nickname':'Imperia_小然然','uid':'61141281259'},{'nickname':'光哥','uid':'58900737309'}]";
-		carePersonStr = "[{'nickname':'光哥','uid':'58900737309'}]";
-		carePersonStr="[{'nickname':'大果粒','shDetails':[],'uid':'72722865756'}]";
+		// carePersonStr = "[{'nickname':'光哥','uid':'58900737309'}]";
+		// carePersonStr="[{'nickname':'大果粒','shDetails':[],'uid':'72722865756'},{'nickname':'光哥','uid':'58900737309'}]";
 		List<FollPerson> parseArray = JSON.parseArray(carePersonStr, FollPerson.class);
 		MyCareBean myCareBean = new MyCareBean();
 

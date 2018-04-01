@@ -3,6 +3,7 @@ package cn.zhuzi.douyin.downthread;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 import org.apache.commons.io.FileUtils;
 import org.jsoup.Connection;
@@ -52,9 +53,11 @@ public class ThreadDownDouyInStep2 extends Thread {
 				 */
 
 				DouYinUtils.sleepForColl(30000);
-				Response document = Jsoup.connect(string).ignoreContentType(true).timeout(15000000).execute();
-				BufferedInputStream stream = document.bodyStream();
-				FileUtils.copyInputStreamToFile(stream, downFile);
+				Response resp = Jsoup.connect(string).ignoreContentType(true).followRedirects(true).timeout(15000000).execute();
+				//重定向后的url
+				URL forWordUrl = resp.url();
+				 
+				FileUtils.copyURLToFile(forWordUrl, downFile, 100000, 100000);
 				DouYinUtils.printMsg("下载完成的是 》" + url + "。地址是： " + string);
 			}
 		} catch (IOException e) {
