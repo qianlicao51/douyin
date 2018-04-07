@@ -1,19 +1,28 @@
 package cn.zhuzi.douyin;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
+
+import org.apache.commons.io.FileUtils;
+
 import cn.zhuzi.douyin.bean.FollPerson;
 import cn.zhuzi.douyin.bean.MyCareBean;
+
 import com.alibaba.fastjson.JSON;
 
 /**
  * 抖音抓取入口
- * 
- * @author grq
- *
  */
 public class DoyYinmP4down {
 	public static void main(String[] args) {
-		String carePersonStr = "[{'nickname':'大果粒','shDetails':[],'uid':'72722865756'},{'nickname':'一珺、','uid':'52616983119'},{'nickname':'Imperia_小然然','uid':'61141281259'},{'nickname':'光哥','uid':'58900737309'}]";
+		String carePersonStr = null;
+
+		try {
+			carePersonStr = FileUtils.readFileToString(new File(new File("").getAbsoluteFile(), "myCare.json"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		List<FollPerson> parseArray = JSON.parseArray(carePersonStr, FollPerson.class);
 		MyCareBean myCareBean = new MyCareBean();
 
